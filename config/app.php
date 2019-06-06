@@ -13,7 +13,10 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Beautiful Fears'),
+    'description' => 'A simple place where you can voice your fears, thoughts and emotions to the world anonymously',
+    'keywords' => 'anonuss, social, mental health, social network, mobile responsive',
+    'author' => 'James Latten',
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +29,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +55,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://beautifulfears.test'),
 
     'asset_url' => env('ASSET_URL', null),
 

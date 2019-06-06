@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    View::addExtension('html', 'php');
-    return View::make('index');
-});
+Route::get('/', 'indexController@index')->name('index.index');
+
+// Posts (Requests)
+Route::get('/post/{post_id}', 'postsController@view')->name('posts.view');
+
+Route::post('/post/create', 'postsController@create')->name('posts.create');
+Route::post('/post/share', 'postControllers@share')->name('posts.share');
+
