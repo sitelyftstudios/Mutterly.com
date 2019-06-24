@@ -1,0 +1,71 @@
+@import 'main';
+
+*{
+    font-family: 'Montserrat';
+}
+
+.inner-website{
+    min-height: 100vh;
+    height: auto;    
+
+    background: white;
+
+    .website-inner{
+        width: 650px;
+        height: 100vh;
+
+        margin:0% auto;
+
+        background: #eee;
+
+        padding-right: 40px;
+        padding-left: 40px;
+
+        .topWebsite{
+
+            .innerTopWebsite{
+                padding-top: 100px;
+
+                .topPostArea{
+
+                    h3{
+                        font-size: 2.5em;
+                        font-weight: 300;
+
+                        color: #673ab7;
+                    }
+
+                    p{
+                        padding-top: 10px;
+                        line-height: 1.5em;
+
+                        font-weight: 500;
+                    }
+                }
+
+                .bottomPostArea{
+                    border-bottom: 1px solid rgba(0,0,0,.1);
+
+                    padding-top: 20px;
+                    padding-bottom: 30px;
+
+                    form{
+
+                        textarea{
+                            outline: none;
+                            border: none;
+                            resize: none;
+
+                            width: 100%;
+                            height: 110px;
+
+                            padding: 15px;
+
+                            box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

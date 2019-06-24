@@ -1,2 +1,38 @@
-@import 'main';
 
+.post{
+    background: white;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin-top: 25px;
+
+    .innerPost{
+
+        .topPost{
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+
+            p{
+                padding: 0px;
+                margin: 0px;
+            }
+        }
+
+        .bottomPost{
+            padding: 15px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+
+            .bottomArea{
+
+                a{
+                    color: #673ab7;
+                    text-decoration: none;
+                }
+
+                span{
+                    color: #aaa;
+                }
+            }
+        }
+    }
+}

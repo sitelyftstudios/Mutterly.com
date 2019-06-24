@@ -13,6 +13,8 @@
         <meta name="author" content="<?php echo config('app.author'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <link rel="alternate" hreflang="en" href="https://bea.com/" />
 
         <!-- Google -->
@@ -42,5 +44,35 @@
                 @include('templates.footer')
             </div>
         </div>
+
+        <!-- Javascript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{{  asset('js/global.js') }}" type="text/javascript"></script>
+
+        <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        </script>
+
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script>
+    $(function(){
+        // Enable pusher logging - don't include this in production
+        <?php if(env('APP_ENV') !== 'production'){ ?>
+            Pusher.logToConsole = true;
+        <?php } ?>
+
+        var pusher = new Pusher("<?php echo env('PUSHER_APP_KEY'); ?>", {
+            cluster: '<?php echo env('PUSHER_APP_CLUSTER'); ?>',
+            encrypted: true
+        });
+
+
+        // Notifications
+    });
+    </script>
     </body>
 </html>
