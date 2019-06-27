@@ -1,9 +1,103 @@
+// Website
+.website{
+    height: auto !important;
 
+    .sidebar-hold{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+
+        height: 100%;
+
+        background: white;
+        border-right: 1px solid rgba(0,0,0,.1);
+    }
+
+    .inner-website{
+        background: #efefef;
+        position: absolute;
+        right: 0px;
+
+        height: auto !important;
+    }
+}
+
+body, html{
+    background:#efefef
+}
+
+// Sidebar
+.sidebar-hold{
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    z-index: 1040;
+
+    .inner-sidebar{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        padding: 10px;
+
+        .topSidebar{
+            padding-bottom: 10px;
+
+            h3{
+                color: #673ab7;
+
+                font-weight: 400;
+                font-size: 2em;
+            }
+        }
+
+        .middleSidebar{
+            padding-bottom: 25px;
+
+            ul{
+                margin: 0px;
+                padding: 0px;
+
+                li{
+                    list-style: none;
+
+                    a{
+                        color: #fff;
+                        padding: 10px;
+
+                        padding-right: 15px;
+                        padding-left: 15px;
+
+                        background: #673ab7;
+                        border-radius: 3px;
+
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .bottomSidebar{
+
+            span{
+                color: #aaa;
+
+                font-size: .8em;
+            }
+        }
+    }
+}
+
+// Post
 .post{
+    border: none;
+
+    .post-mold{
     background: white;
 
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin-top: 25px;
+    //margin-top: 25px;
+
+    border: none;
 
     .innerPost{
 
@@ -14,6 +108,21 @@
             p{
                 padding: 0px;
                 margin: 0px;
+
+                font-weight: 500;
+            }
+
+            .actions{
+                padding-top: 10px;
+
+                a{
+                    color: #673ab7;
+                }
+
+                a.likeBtn{
+                    float: right;
+                    cursor: pointer;
+                }
             }
         }
 
@@ -35,4 +144,5 @@
             }
         }
     }
+    }   
 }

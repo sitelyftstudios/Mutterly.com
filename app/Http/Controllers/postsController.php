@@ -50,14 +50,15 @@ class postsController extends Controller
     {
         // Validate this request
         $validation = Validator::make($request->all(), [
-            'postText' => 'required|max:240'
+            'postText' => 'required|max:240',
+            'postNumber' => 'required|max:10',
         ]);
 
         // Check 
         if(!$validation->fails())
         {
             // Now lets send the request over
-            $create = json_decode($this->psystem->create($request->postText), true);
+            $create = json_decode($this->psystem->create($request->postText, $request->postNumber), true);
 
             // Reuturn val
             return response()->json($create);
@@ -76,7 +77,7 @@ class postsController extends Controller
     public function comment(Request $request)
     {
         // Validate this request
-        $validation = $request->validate([
+        $validation = Validator::make($request->all(), [
             'commentText' => 'required|max:200',
             'postId' => 'required'
         ]);
@@ -84,10 +85,10 @@ class postsController extends Controller
         // We're good now
         if(!$validation->fails())
         {
-            $create = json_decode($this->psystem->addComment($request->postText), true);
+            $create = json_decode($this->psystem->addComment($request->commentText), true);
 
             // Return val
-            echo json_encode($create);
+            return json_encode($create);
         }else{
             return response()->json(['errors'=>$validation->errors()->all()]);
         }
@@ -113,7 +114,7 @@ class postsController extends Controller
     public function like(Request $request)
     {
         // Validate this request
-        $validation = $request->validate([
+        $validation = Validator::make($request->all(), [
             'postId' => 'required'
         ]);
 
@@ -123,7 +124,7 @@ class postsController extends Controller
             $create = json_decode($this->psystem->addLike($request->postId), true);
 
             // Return val
-            echo json_encode($create);
+            return  json_encode($create);
         }else{
             return response()->json(['errors'=>$validation->errors()->all()]);
         }

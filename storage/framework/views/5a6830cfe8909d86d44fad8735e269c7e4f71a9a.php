@@ -7,9 +7,9 @@ use App\Libraries\LocationSystem;
 $postSystem = new PostSystem();
 $location = new LocationSystem();
 ?>
-@extends('layouts.index')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="website-inner">
         <div class="topBanner">
             <div class="cover">
@@ -42,7 +42,7 @@ $location = new LocationSystem();
                         </div>
     
                         <!-- Form -->
-                        <form action="{{ route('posts.create') }}" method="post" id="postMakerForm">
+                        <form action="<?php echo e(route('posts.create')); ?>" method="post" id="postMakerForm">
                             <textarea name="postText" id="postText" placeholder="Whats on your mind?" max="240"></textarea>
                             <input type="tel" name="postNumber" id="postNumber" placeholder="Phone Number" /> 
                             <input type="submit" class="btn btn-success" value="Post" />
@@ -113,7 +113,7 @@ $location = new LocationSystem();
                                         <div class="topPost">
                                             <p><?php echo $thought_content; ?></p>
                                             <div class="actions">
-                                                <a href="{{ route('login') }}">Show support</a>
+                                                <a href="<?php echo e(route('login')); ?>">Show support</a>
                                                 <a class="likeBtn" id="likeBtn-<?php echo $thought_id; ?>" data-id="<?php echo $thought_id; ?>"><span class="icon animated" id="icon-<?php echo $thought_id; ?>"><i class="far fa-heart"></i></span> <span class="count" id="count-<?php echo $thought_id; ?>"><?php echo count($likes); ?></span></a>
                                             </div>
                                         </div>
@@ -132,4 +132,5 @@ $location = new LocationSystem();
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/beautifulfears/resources/views/index.blade.php ENDPATH**/ ?>

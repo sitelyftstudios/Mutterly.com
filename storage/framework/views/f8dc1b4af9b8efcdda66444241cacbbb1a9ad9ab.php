@@ -13,7 +13,7 @@
         <meta name="author" content="<?php echo config('app.author'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
         <link rel="alternate" hreflang="en" href="https://bea.com/" />
 
@@ -28,7 +28,7 @@
         <!-- Specific page stylesheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="{{ asset('css/'.$stylesheet.'.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo e(asset('css/'.$stylesheet.'.css')); ?>" rel="stylesheet" type="text/css"/>
 
         <!-- Script -->
         <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
@@ -36,13 +36,13 @@
     <body>
         <div class="website row">
             <div class="sidebar-hold col-lg-3">
-                @include('templates.sidebar')
+                <?php echo $__env->make('templates.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
             <div class="inner-website col-lg-9">
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
 
                 <div class="footer-hold">
-                    @include('templates.footer')
+                    <?php echo $__env->make('templates.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="{{  asset('js/global.js') }}" type="text/javascript"></script>
+        <script src="<?php echo e(asset('js/global.js')); ?>" type="text/javascript"></script>
 
         <script>
         $.ajaxSetup({
@@ -79,4 +79,4 @@
     });
     </script>
     </body>
-</html>
+</html><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/beautifulfears/resources/views/layouts/index.blade.php ENDPATH**/ ?>

@@ -5,34 +5,49 @@
 }
 
 .inner-website{
-    min-height: 100vh;
     height: auto;    
 
     background: white;
 
+    padding: 0px;
+
     .website-inner{
-        width: 650px;
-        height: 100vh;
+        width: 100%;
 
         margin:0% auto;
 
-        background: #eee;
+        background: #efefef;
 
-        padding-right: 40px;
-        padding-left: 40px;
+        //padding-right: 40px;
+        //padding-left: 40px;
 
-        .topWebsite{
+        padding: 0px !important;
 
-            .innerTopWebsite{
-                padding-top: 100px;
+        .topBanner{
+            width: 100%;
+            min-height: 500px;
+
+            background: url(https://images.unsplash.com/photo-1561266436-6a5834b9b1ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+            background-size: cover;
+
+            .cover{
+                width: 100%;
+                min-height: 500px;
+
+                background: rgba(0,0,0,.5);
+
+                padding-top: 70px;
+                padding-bottom: 60px;
 
                 .topPostArea{
+                    width: 800px;
+                    margin: 0% auto;
 
                     h3{
                         font-size: 2.5em;
                         font-weight: 300;
 
-                        color: #673ab7;
+                        color: #fff;
                     }
 
                     p{
@@ -40,6 +55,8 @@
                         line-height: 1.5em;
 
                         font-weight: 500;
+
+                        color: white;
                     }
                 }
 
@@ -48,6 +65,51 @@
 
                     padding-top: 20px;
                     padding-bottom: 30px;
+
+                    width: 800px;
+                    margin: 0% auto;
+
+                    .modal{
+                        //display: block;
+
+                        .modal-dialog{
+
+                            .modal-content{
+                                border: none;
+
+                                .modal-header{
+                                    border-bottom: 0px;
+                                    background: #673ab7;
+
+                                    h5{
+                                        color: white;
+
+                                        font-weight: 400;
+                                    }
+
+                                    button{
+
+                                        span{
+                                            color: white;
+                                        }
+                                    }
+                                }
+
+                                .modal-body{
+                                    padding-top: 15px;
+
+                                    p{
+                                        font-weight: 500;
+                                    }
+
+                                    p.bottom{
+                                        padding-top: 20px;
+                                        border-top: 1px solid #eee;
+                                    }
+                                }
+                            }
+                        }
+                    }
 
                     form{
 
@@ -59,12 +121,45 @@
                             width: 100%;
                             height: 110px;
 
-                            padding: 15px;
+                            padding: 25px;
 
                             box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+
+                            margin-bottom: 15px;
+                        }
+
+                        input[type="tel"]{
+                            padding: 10px;
+                            border: none;
+
+                            width: 220px;
+
+                            box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+
+                            margin-right: 15px;
+
+                            
+                        }
+
+                        .btn{
+                            background: #673ab7;
+                            border-color: #673ab7;
                         }
                     }
                 }
+            }
+        }
+
+        .topWebsite{
+
+            padding-bottom: 75px;
+            width: 100%;
+
+            .innerTopWebsite{
+                padding: 50px;
+                padding-top: 50px;
+
+                
             }
         }
     }

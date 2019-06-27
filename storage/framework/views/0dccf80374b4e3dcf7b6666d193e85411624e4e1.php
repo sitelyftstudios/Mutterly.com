@@ -1,0 +1,1 @@
+<?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/beautifulfears/resources/views/templates/footer.blade.php ENDPATH**/ ?>
