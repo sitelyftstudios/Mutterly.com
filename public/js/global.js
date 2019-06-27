@@ -1,6 +1,10 @@
 $(document).ready(function(){
     var busy = false;
 
+    $(document).on('click', '.close-btn', function(){
+        location.reload();
+    });
+
     $(document).on('submit', '#postMakerForm', function(e)
     {
         if(busy == false)

@@ -159,7 +159,22 @@
                 padding: 50px;
                 padding-top: 50px;
 
-                
+                .top{
+
+                    h3{
+                        text-align: center;
+                        padding: 25px;
+
+                        font-weight: 400;
+                    }
+                }
+
+                .bottomFeed{
+                    width: 800px;
+                    margin: 0% auto;
+
+                    padding: 5px;
+                }
             }
         }
     }

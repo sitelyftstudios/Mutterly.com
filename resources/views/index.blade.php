@@ -35,7 +35,7 @@ $location = new LocationSystem();
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn close-btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ $location = new LocationSystem();
                                         <div class="topPost">
                                             <p><?php echo $thought_content; ?></p>
                                             <div class="actions">
-                                                <a href="{{ route('login') }}">Show support</a>
+                                                <a href="/thought/<?php echo $thought_id; ?>">Show support</a>
                                                 <a class="likeBtn" id="likeBtn-<?php echo $thought_id; ?>" data-id="<?php echo $thought_id; ?>"><span class="icon animated" id="icon-<?php echo $thought_id; ?>"><i class="far fa-heart"></i></span> <span class="count" id="count-<?php echo $thought_id; ?>"><?php echo count($likes); ?></span></a>
                                             </div>
                                         </div>

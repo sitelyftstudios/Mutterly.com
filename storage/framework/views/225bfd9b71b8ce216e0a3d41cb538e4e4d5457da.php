@@ -7,9 +7,9 @@ use App\Libraries\LocationSystem;
 $postSystem = new PostSystem();
 $location = new LocationSystem();
 ?>
-@extends('layouts.index')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="website-inner">
         <div class="topBanner">
             <div class="cover">
@@ -80,4 +80,5 @@ $location = new LocationSystem();
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/beautifulfears/resources/views/thought.blade.php ENDPATH**/ ?>

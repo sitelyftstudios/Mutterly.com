@@ -6,7 +6,7 @@
     </div>
     <div class="middleSidebar">
         <ul>
-            <li><a href=''>Become a therapist</a></li>
+            <li><a href=''>Share your thoughts</a></li>
         </ul>
     </div>
     <div class="bottomSidebar">
