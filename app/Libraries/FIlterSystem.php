@@ -29,7 +29,7 @@ class FilterSystem
         if(!empty($text))
         {
             // Dictionary of words
-            $words = array('fuck', 'damn', 'fag', 'faggot', 'nigger', 'nigga', 'spick', 'nig', 'shit', 'asshole', 'fucktard', 'shitty');
+            $words = array('fuck', 'damn', 'fag', 'faggot', 'nigger', 'nigga', 'spick', 'nig', 'shit', 'asshole', 'fucktard', 'shitty', 'kill yourself', 'you deserve to die', 'u deserve to die', 'i hate you');
 
             // Iterate
             $lowercased = strtolower($text);
@@ -46,9 +46,9 @@ class FilterSystem
      * ---
      * Will show a timeago format
      */
-    function timeago($datetime, $full = false) {
-        $now = new DateTime;
-        $ago = new DateTime($datetime);
+    public function dateFix($datetime, $full = false) {
+        $now = new \DateTime;
+        $ago = new \DateTime($datetime);
         $diff = $now->diff($ago);
     
         $diff->w = floor($diff->d / 7);

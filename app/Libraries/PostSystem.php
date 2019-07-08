@@ -71,7 +71,7 @@ class PostSystem
                         // Send text
                         $valid_number = "+1" . $valid_number;
 
-                        //$this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly - Don't worry, you're not alone. Follow this https://mutterly.com/thought/view/".$code." to view your post and it's comments! We will also text you when someone comments on your post."));
+                        $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly - Don't worry, you're not alone. Follow this link: https://mutterly.com/thought/".$code." to view your post and it's comments! We will also text you when someone comments on your post."));
 
                         // Insert
                         $insert = DB::table('thoughts')->insert(['thought_id' => $code, 'thought_content' => $this->filter->santitize($text), 'thought_ip' => $ip, 'thought_date' => date('y-m-d H:i:s'), 'thought_views' => 0, 'thought_phone_number' => $valid_number]);
@@ -99,7 +99,7 @@ class PostSystem
      * 
      */
     public function addComment($code, $content)
-    {
+    {        
         if(count($thought = $this->fetchThought($code)) == 1)
         {
             // Now we can get the IP
@@ -108,7 +108,7 @@ class PostSystem
             // Check
             $author = 0;
 
-            if($ip = $thought->thought_ip)
+            if($ip = $thought[0]->thought_ip)
             {
                 // Means its the author 
                 $author = 1;
@@ -118,10 +118,10 @@ class PostSystem
             $ccode = 'cmt_' . md5(encrypt(md5(rand(10, 1000))) . rand(10, 1000));
 
             // Send a text
-            //$this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly - Don't worry, you're not alone. Follow this https://mutterly.com/thought/view/".$code." to view your post and it's comments! We will also text you when someone comments on your post."));
+            $this->tclient->messages->create($thought[0]->thought_phone_number, array('from' => $this->tnumber, 'body' => "From Mutterly - You have a new comment. Follow this link: https://mutterly.com/thought/view/".$code." to view your post and it's comments!"));
 
             // Okay lets add it to the database
-            $insert = DB::table('thoughts_comments')->insert(['thought_id' => $code, 'thought_author' =>$author, 'comment_id' => $ccode, 'comment_content' => $content, 'comment_user_ip' => $ip, 'comment_date' => date('y-m-d H:i:s')]);
+            $insert = DB::table('thoughts_comments')->insert(['thought_id' => $code, 'thought_author' =>$author, 'comment_id' => $ccode, 'comment_content' => $this->filter->santitize($content), 'comment_user_ip' => $ip, 'comment_date' => date('y-m-d H:i:s')]);
 
             // All done
             return json_encode(array('code' => '1', 'status' => 'Successfully commented!', 'content' => ['thought_id' => $code, 'comment_id' => $ccode, 'comment_content' => $content, 'comment_date' => 'Now']));

@@ -3,9 +3,21 @@ $stylesheet = "index";
 
 use App\Libraries\PostSystem;
 use App\Libraries\LocationSystem;
+use App\Libraries\FilterSystem;
 
 $postSystem = new PostSystem();
 $location = new LocationSystem();
+$filter = new FilterSystem();
+
+$post = json_decode($data, true)[0];
+
+// Share content
+$share_content = "
+    <input type='text' id='copyFrom' value='https://mutterly.com/thought/".$post['thought_id']."' style='display: none;'/>
+    <p style='margin-bottom: 5px;border-bottom: 1px solid #eee;padding-bottom: 10px;'><button class='copy btn-sm' style='color: #673ab7;' href='https://mutterly.com/thought/".$post['thought_id']."'>Copy link</button></p>
+    <a style='font-size: 22px;' class='twitter-share-button' href='https://twitter.com/intent/tweet?text=Lets support our peer: https://mutterly.com/thought/".$post['thought_id']." #mutterly'><i class='fab fa-twitter'></i></a>
+
+";
 ?>
 
 
@@ -19,7 +31,6 @@ $location = new LocationSystem();
                 </div>
                 <div class="bottomPostArea">
                     <?php
-                    $post = json_decode($data, true)[0];
 
                     if(1 == 1)
                     {
@@ -28,21 +39,26 @@ $location = new LocationSystem();
                         $local = $location->getInfo($post['thought_ip']);
                         $city = "";
 
-                        if(!empty($local->geobytesregion))
+                        if($post['thought_ip'] != "127.0.0.1")
                         {
-                            // Lets update the city in db
-                            DB::table('thoughts')->where('thought_id', $post['thought_id'])->update(['thought_state' => $local->geobytesregion]);
+                            if(!empty($local->geobytesregion))
+                            {
+                                // Lets update the city in db
+                                DB::table('thoughts')->where('thought_id', $post['thought_id'])->update(['thought_state' => $local->geobytesregion]);
 
-                            $city = $local->geobytesregion;
+                                $city = $local->geobytesregion;
+                            }else{
+                                $city = $post['thought_state'];
+                            }
                         }else{
-                            $city = $post['thought_state'];
+                            $city = "Ohio"; 
                         }
 
                         // Likes
                         $likes = $postSystem->fetchLikes($post['thought_id']);
                     
                         // Comments
-                        $comments = $postSystem->fetchComments($post['thought_id']);
+                        $comments = json_decode($postSystem->fetchComments($post['thought_id']), true);
         
                     ?>
                     <div class="post card">
@@ -51,13 +67,13 @@ $location = new LocationSystem();
                                 <div class="topPost">
                                     <p><?php echo $post['thought_content']; ?></p>
                                     <div class="actions">
-                                        <a href="/thought/<?php echo $post['thought_id']; ?>">Share</a>
+                                        <button type="button" class="btn btn-sm" data-html="true" data-placement="top" data-toggle="popover" title="Share this thought" data-content="<?php echo $share_content; ?>" href="/thought/<?php echo $post['thought_id']; ?>">Share</button>
                                         <a class="likeBtn" id="likeBtn-<?php echo $post['thought_id']; ?>" data-id="<?php echo $post['thought_id']; ?>"><span class="icon animated" id="icon-<?php echo $post['thought_id']; ?>"><i class="far fa-heart"></i></span> <span class="count" id="count-<?php echo $post['thought_id']; ?>"><?php echo count($likes); ?></span></a>
                                     </div>
                                 </div>
                                 <div class="bottomPost">
                                     <div class="bottomArea">
-                                        <span><?php echo $city; ?></span> <span style="float: right;"><?php //echo timeago($thought_date); ?></span>
+                                        <span><?php echo $city; ?></span> <span style="float: right;"><?php echo $filter->dateFix($post['thought_date']); ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -73,9 +89,68 @@ $location = new LocationSystem();
             <div class="innerTopWebsite">
                 <div class="top">
                     <h3>Comments (<?php echo count($comments); ?>)</h3>
+                    <div class="commentPostEntry">
+                        <form id="commentMaker" action="<?php echo e(route('posts.comment')); ?>" method="post">
+                            <?php echo csrf_field(); ?>
+                            <textarea name="commentContent" id="commentContent" placeholder="Any advice?"></textarea>
+                            <input type="hidden" id="postId" name="postId" value="<?php echo $post['thought_id']; ?>" />
+                            <input type="submit" name="" class="btn btn-sm" value="Comment" />
+                        </form>
+                    </div>
                 </div>
-                <div class="bottomFeed card-columns">
-                    
+                <div class="bottomFeedView card-columns">
+                    <?php
+                        foreach($comments as $comment)
+                        {
+                            // Get variables
+                            $comment_id = $comment['comment_id'];
+                            $comment_content = $comment['comment_content'];
+                            $comment_user_ip = $comment['comment_user_ip'];
+                            $comment_date = $comment['comment_date'];
+                            $comment_state = $comment['comment_state'];
+
+                            $thought_id = $comment['thought_id'];
+                            $thought_author = $comment['thought_author'];
+
+                            // IP
+                            $local = $location->getInfo($comment_user_ip);
+                            $city = "";
+
+                            if($comment_user_ip != "127.0.0.1")
+                            {
+                                if(!empty($local->geobytesregion))
+                                {
+                                    // Lets update the city in db
+                                    DB::table('thoughts_comments')->where('comment_id', $comment_id)->update(['comment_state' => $local->geobytesregion]);
+
+                                    $city = $local->geobytesregion;
+                                }else{
+                                    $city = $comment_state;
+                                }
+                            }else{
+                                $city = "Ohio";
+                            }
+                        ?>
+                            <div class="post card">
+                                <div class="post-mold">
+                                    <div class="innerPost">
+                                        <div class="topPost">
+                                            <p><?php echo $comment_content; ?></p>
+                                            <div class="actions">
+
+                                            </div>
+                                        </div>
+                                        <div class="bottomPost">
+                                            <div class="bottomArea">
+                                                <span><?php echo $city; ?></span> <span style="float: right;"><?php echo $filter->dateFix($comment_date); ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>

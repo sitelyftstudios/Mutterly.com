@@ -47,6 +47,11 @@ body, html{
 
                 font-weight: 400;
                 font-size: 2em;
+
+                a{
+                    color: #673ab7;
+                    text-decoration: none;
+                }
             }
         }
 
@@ -83,6 +88,19 @@ body, html{
 
                 font-size: .8em;
             }
+
+            p.sidenote{
+                color: #aaa;
+
+                font-size: .8em;
+                font-weight: 600;
+
+                margin-bottom: 0px;
+
+                a{
+                    color: #673ab7;
+                }
+            }
         }
     }
 }
@@ -90,11 +108,12 @@ body, html{
 // Post
 .post{
     border: none;
+    padding: 10px;
+
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
     .post-mold{
     background: white;
-
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     //margin-top: 25px;
 
     border: none;
@@ -115,8 +134,9 @@ body, html{
             .actions{
                 padding-top: 10px;
 
-                a{
-                    color: #673ab7;
+                button{
+                    background: #673ab7;
+                    color: white;
                 }
 
                 a.likeBtn{

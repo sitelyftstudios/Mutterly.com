@@ -78,14 +78,14 @@ class postsController extends Controller
     {
         // Validate this request
         $validation = Validator::make($request->all(), [
-            'commentText' => 'required|max:200',
+            'commentContent' => 'required|max:200',
             'postId' => 'required'
         ]);
 
         // We're good now
         if(!$validation->fails())
         {
-            $create = json_decode($this->psystem->addComment($request->commentText), true);
+            $create = json_decode($this->psystem->addComment($request->postId, $request->commentContent), true);
 
             // Return val
             return json_encode($create);

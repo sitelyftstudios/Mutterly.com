@@ -167,13 +167,68 @@
 
                         font-weight: 400;
                     }
+
+                    .commentPostEntry{
+                        width: 400px;
+                        margin: 0% auto;
+
+                        outline: none;
+                        border: none;
+                        resize: none;
+
+                        height: 150px;
+
+                        padding: 15px;
+
+                        background: white;
+
+                        box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+
+                        margin-bottom: 15px;
+
+                        form{
+
+                            textarea{
+                                outline: none;
+                                border: none;
+                                resize: none;
+
+                                padding: 5px;
+
+                                width: 100%;
+                                height: 80px;
+
+                                margin-bottom: 15px;
+                            }
+
+                            input[type='submit']{
+                                color: white;
+                                background: #673ab7;
+
+                                position: relative;
+                                //margin-top: -60px;
+                                top: -15px;
+                            }
+                        }
+                    }
                 }
 
                 .bottomFeed{
                     width: 800px;
                     margin: 0% auto;
 
-                    padding: 5px;
+                    padding-top: 25px;
+
+                    column-count: 2;
+                }
+
+                .bottomFeedView{
+                    width: 800px;
+                    margin: 0% auto;
+
+                    padding-top: 25px;
+
+                    column-count: 2;
                 }
             }
         }

@@ -17,8 +17,8 @@ Route::get('/', 'indexController@index')->name('index.index');
 Route::get('/thought/{post_id}', 'postsController@view')->name('posts.view');
 
 Route::post('/thought/create', 'postsController@create')->name('posts.create');
-Route::post('/thought/comment', 'postControllers@comment')->name('posts.comment');
-Route::post('/thought/fetchAll', 'postControllers@fetchAll')->name('posts.fetchAll');
+Route::post('/thought/comment', 'postsController@comment')->name('posts.comment');
+Route::post('/thought/fetchAll', 'postsController@fetchAll')->name('posts.fetchAll');
 Route::post('/thought/like', 'postsController@like')->name('posts.like');
 
 Auth::routes();

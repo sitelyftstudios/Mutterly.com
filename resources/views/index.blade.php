@@ -93,14 +93,19 @@ $location = new LocationSystem();
                             $local = $location->getInfo($thought_ip);
                             $city = "";
 
-                            if(!empty($local->geobytesregion))
+                            if($thought_ip != "127.0.0.1")
                             {
-                                // Lets update the city in db
-                                DB::table('thoughts')->where('thought_id', $thought_id)->update(['thought_state' => $local->geobytesregion]);
+                                if(!empty($local->geobytesregion))
+                                {
+                                    // Lets update the city in db
+                                    DB::table('thoughts')->where('thought_id', $thought_id)->update(['thought_state' => $local->geobytesregion]);
 
-                                $city = $local->geobytesregion;
+                                    $city = $local->geobytesregion;
+                                }else{
+                                    $city = $thought_state;
+                                }
                             }else{
-                                $city = $thought_state;
+                                $city = "Ohio";
                             }
 
                             // Likes
