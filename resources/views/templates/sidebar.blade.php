@@ -1,7 +1,7 @@
 <!-- header -->
 <div class="inner-sidebar">
     <div class="topSidebar">
-        <h3><a href="{{  route('index.index') }}">Mutterly</a></h3>
+        <h3><a href="{{  route('index.index') }}">Mutterly<sup style="font-size: .4em;margin-left: 5px;position: relative;top: -15px;">Beta <?php echo env('APP_VERSION'); ?></sup></a></h3>
         <p>You're not alone. Share your thoughts and ideas with the world, and get the support you need</p>
     </div>
     <div class="middleSidebar">

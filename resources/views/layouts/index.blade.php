@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Mutterly | You're not alone</title>
 
         <title><?php echo config('app.name'); ?> | The premier poetry community</title>
 
@@ -35,10 +35,14 @@
     </head>
     <body>
         <div class="website row">
-            <div class="sidebar-hold col-lg-3">
+            <div class="sidebar-hold col-lg-3 col-md-4 d-lg-block d-md-block d-sm-none d-xs-none">
                 @include('templates.sidebar')
             </div>
-            <div class="inner-website col-lg-9">
+            <div class="inner-website col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div style="padding: 0px;" class="header-hold col-sm-12 col-xs-12 d-xs-block d-sm-block d-xl-none d-lg-none d-md-none">
+                    @include('templates.header')
+                </div>
+
                 @yield('content')
 
                 <div class="footer-hold">

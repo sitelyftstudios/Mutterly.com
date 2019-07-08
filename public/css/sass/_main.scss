@@ -26,6 +26,66 @@ body, html{
     background:#efefef
 }
 
+// Header
+.header{
+    background: white;
+
+    .topBetaNote{
+        background: #673ab7;
+        padding: 10px;
+
+        padding-left: 55px;
+
+        h4{
+            color: white;
+
+            font-weight: 500;
+            font-size: .7em;
+            padding: 0px;
+            margin: 0px;
+
+            text-align: left;
+        }
+    }
+
+    .innerHeader{
+        height: 60px;
+
+        .contain{
+            width: 89%;
+            margin: 0% auto;
+
+            .navbar-brand{
+                padding: 15px;
+                float: left;
+
+                h3{
+                    font-size: 1.2em;
+                    margin:0;
+                    padding: 0;
+
+                    a{
+                        color: #673ab7;
+                        text-align: center;
+                    }
+                }
+
+            }
+
+            .navbar-action{
+                float: right;
+                padding: 10px;
+
+                a{
+                    color: white;
+                    background: #673ab7;
+                }
+
+            }
+        }
+    }
+}
+
 // Sidebar
 .sidebar-hold{
     position: relative;
