@@ -71,7 +71,7 @@ class PostSystem
                         // Send text
                         $valid_number = "+1" . $valid_number;
 
-                        $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly - Don't worry, you're not alone. Follow this link: https://mutterly.com/thought/".$code." to view your post and it's comments! We will also text you when someone comments on your post."));
+                        $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly - Don't worry, you're not alone. Follow this link: http://mutterly.com/thought/".$code." to view your post and it's comments! We will also text you when someone comments on your post."));
 
                         // Insert
                         $insert = DB::table('thoughts')->insert(['thought_id' => $code, 'thought_content' => $this->filter->santitize($text), 'thought_ip' => $ip, 'thought_date' => date('y-m-d H:i:s'), 'thought_views' => 0, 'thought_phone_number' => $valid_number]);
@@ -118,7 +118,7 @@ class PostSystem
             $ccode = 'cmt_' . md5(encrypt(md5(rand(10, 1000))) . rand(10, 1000));
 
             // Send a text
-            $this->tclient->messages->create($thought[0]->thought_phone_number, array('from' => $this->tnumber, 'body' => "From Mutterly - You have a new comment. Follow this link: https://mutterly.com/thought/view/".$code." to view your post and it's comments!"));
+            $this->tclient->messages->create($thought[0]->thought_phone_number, array('from' => $this->tnumber, 'body' => "From Mutterly - You have a new comment. Follow this link: http://mutterly.com/thought/view/".$code." to view your post and it's comments!"));
 
             // Okay lets add it to the database
             $insert = DB::table('thoughts_comments')->insert(['thought_id' => $code, 'thought_author' =>$author, 'comment_id' => $ccode, 'comment_content' => $this->filter->santitize($content), 'comment_user_ip' => $ip, 'comment_date' => date('y-m-d H:i:s')]);

@@ -172,8 +172,15 @@
             width: 100%;
 
             .innerTopWebsite{
-                padding: 50px;
-                padding-top: 50px;
+                @media screen and (min-width: 501px){
+                    padding: 50px;
+                    padding-top: 50px;
+                }
+
+                @media screen and (max-width: 501px){
+                    padding: 20px;
+                    padding-top: 0px;
+                }
 
                 .top{
 

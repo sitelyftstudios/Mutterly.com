@@ -35,7 +35,7 @@
     </head>
     <body>
         <div class="website row">
-            <div class="sidebar-hold col-lg-3 col-md-4 d-lg-block d-md-block d-sm-none d-xs-none">
+            <div class="sidebar-hold col-lg-3 col-md-4 d-lg-block d-md-block d-none">
                 <?php echo $__env->make('templates.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
             <div class="inner-website col-lg-9 col-md-8 col-sm-12 col-xs-12">
