@@ -13,7 +13,7 @@
                 <a href="<?php echo e(route('index.about')); ?>">About</a>            
             </li>
             <li>
-                <a href="<?php echo e(route('index.contact')); ?>">Contact</a>    
+                <a href="mailto:hello@sitelyftstudios.com">Contact</a>    
             </li>
         </ul>
     </div>

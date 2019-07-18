@@ -72,7 +72,7 @@ class PostSystem
                         $valid_number = "+1" . $valid_number;
 
                         // Message
-                        $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly:\nDon't worry, you're not alone. We will  text you when someone comments on your post."));
+                        $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly:\nDon't worry, you're not alone. We will text you when someone comments on your post. Be sure to save our number!"));
 
                         // Link 
                         $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "Link to your post:\nhttp://mutterly.com/thought/".$code.""));
