@@ -8,7 +8,7 @@
                 <h3><a href="{{ route('index.index') }}">Mutterly</a></h3>
             </div>
             <div class="navbar-action">
-                <a href="" class="btn btn-small">Share a thought</a>
+                <a href="{{  route('index.index') }}" class="btn btn-small">Share a thought</a>
             </div>
         </div>
     </div>
