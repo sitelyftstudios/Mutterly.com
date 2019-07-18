@@ -3,11 +3,16 @@ namespace App\Libraries;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+
+use Snipe\BanBuilder\CensorWords;
+
 use App\Libraries\User;
 
 class FilterSystem
 {
     private $db;
+    private $censor;
+
     private $response;
 
     /**
@@ -16,6 +21,7 @@ class FilterSystem
     public function __construct()
     {
         $this->db = new DB;
+        $this->censor = new CensorWords;
     }
 
     /**
@@ -28,17 +34,22 @@ class FilterSystem
     {
         if(!empty($text))
         {
-            // Dictionary of words
-            $words = array('fuck', 'damn', 'fag', 'faggot', 'nigger', 'nigga', 'spick', 'nig', 'shit', 'asshole', 'fucktard', 'shitty', 'kill yourself', 'you deserve to die', 'u deserve to die', 'i hate you');
-
-            // Iterate
-            $lowercased = strtolower($text);
-
-            $lowercased = str_replace($words, "****", $lowercased);
+            // Satitize
+            $string = $this->censor->censorString($text);
 
             // Return
-            return $lowercased;
+            return $string['clean'];
         }
+    }
+
+    /**
+     * Bully filter
+     */
+    public function bullyFilter($text)
+    {
+        $phrases = array('Die', 'die', 'i hope you die', 'kill yourself', 'nobody loves you', 'i hate you', 'I hate you', 'Nobody loves you', 'Youre worthless', "You're worthless", "Your ugly", 'Your worthless', 'Your stupid', 'Your dumb', 'You dont matter', 'You will never be happy', 'I hope you die', 'I am going to kill you', 'I will kill you');
+        $fix = str_ireplace($phrases, "****", $text, $i);
+        return $i;
     }
 
     /**

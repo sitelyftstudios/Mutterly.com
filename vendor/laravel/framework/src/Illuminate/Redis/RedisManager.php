@@ -118,7 +118,9 @@ class RedisManager implements Factory
     protected function resolveCluster($name)
     {
         return $this->connector()->connectToCluster(
-            $this->parseConnectionConfiguration($this->config['clusters'][$name]),
+            array_map(function ($config) {
+                return $this->parseConnectionConfiguration($config);
+            }, $this->config['clusters'][$name]),
             $this->config['clusters']['options'] ?? [],
             $this->config['options'] ?? []
         );
@@ -168,7 +170,7 @@ class RedisManager implements Factory
         $parsed = (new ConfigurationUrlParser)->parseConfiguration($config);
 
         return array_filter($parsed, function ($key) {
-            return ! in_array($key, ['driver', 'username']);
+            return ! in_array($key, ['driver', 'username'], true);
         }, ARRAY_FILTER_USE_KEY);
     }
 
@@ -200,6 +202,17 @@ class RedisManager implements Factory
     public function disableEvents()
     {
         $this->events = false;
+    }
+
+    /**
+     * Set the default driver.
+     *
+     * @param  string  $driver
+     * @return void
+     */
+    public function setDriver($driver)
+    {
+        $this->driver = $driver;
     }
 
     /**

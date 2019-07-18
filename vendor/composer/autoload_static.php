@@ -66,6 +66,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Snipe\\BanBuilder\\' => 17,
         ),
         'R' => 
         array (
@@ -77,6 +78,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'Prophecy\\' => 9,
             'PhpParser\\' => 10,
         ),
         'O' => 
@@ -125,6 +127,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         array (
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
             'DeepCopy\\' => 9,
         ),
@@ -259,6 +262,10 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Snipe\\BanBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/snipe/banbuilder/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -278,6 +285,10 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Prophecy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
         'PhpParser\\' => 
         array (
@@ -351,6 +362,10 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
         'Doctrine\\Common\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
@@ -384,10 +399,6 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
     public static $prefixesPsr0 = array (
         'P' => 
         array (
-            'Prophecy\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
-            ),
             'PhpOption\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
@@ -404,13 +415,6 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
-        'D' => 
-        array (
-            'Doctrine\\Common\\Lexer\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
-            ),
-        ),
     );
 
     public static $classMap = array (
@@ -422,6 +426,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\indexController' => __DIR__ . '/../..' . '/app/Http/Controllers/indexController.php',
         'App\\Http\\Controllers\\postsController' => __DIR__ . '/../..' . '/app/Http/Controllers/postsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -434,6 +439,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Libraries\\FilterSystem' => __DIR__ . '/../..' . '/app/Libraries/FIlterSystem.php',
+        'App\\Libraries\\LocationSystem' => __DIR__ . '/../..' . '/app/Libraries/LocationSystem.php',
         'App\\Libraries\\PostSystem' => __DIR__ . '/../..' . '/app/Libraries/PostSystem.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -451,6 +457,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\CarbonPeriod' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonPeriod.php',
         'Carbon\\CarbonTimeZone' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonTimeZone.php',
+        'Carbon\\Cli\\Invoker' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Cli/Invoker.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Factory' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Factory.php',
         'Carbon\\FactoryImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/FactoryImmutable.php',
@@ -2611,6 +2618,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'PHP_Token_UNSET_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_USE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_USE_FUNCTION' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PHP_Token_Util' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token/Util.php',
         'PHP_Token_VAR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_VARIABLE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_WHILE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
@@ -3299,6 +3307,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Snipe\\BanBuilder\\CensorWords' => __DIR__ . '/..' . '/snipe/banbuilder/src/CensorWords.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
@@ -4012,6 +4021,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'Twilio\\Exceptions\\TwimlException' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Exceptions/TwimlException.php',
         'Twilio\\Http\\Client' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Http/Client.php',
         'Twilio\\Http\\CurlClient' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Http/CurlClient.php',
+        'Twilio\\Http\\GuzzleClient' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Http/GuzzleClient.php',
         'Twilio\\Http\\Response' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Http/Response.php',
         'Twilio\\InstanceContext' => __DIR__ . '/..' . '/twilio/sdk/Twilio/InstanceContext.php',
         'Twilio\\InstanceResource' => __DIR__ . '/..' . '/twilio/sdk/Twilio/InstanceResource.php',
@@ -5154,16 +5164,18 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'Twilio\\Rest\\Preview\\Sync\\Service\\SyncMap\\SyncMapPermissionPage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/Sync/Service/SyncMap/SyncMapPermissionPage.php',
         'Twilio\\Rest\\Preview\\Sync\\UpdateServiceOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/Sync/ServiceOptions.php',
         'Twilio\\Rest\\Preview\\TrustedComms' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms.php',
+        'Twilio\\Rest\\Preview\\TrustedComms\\CpsContext' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CpsContext.php',
+        'Twilio\\Rest\\Preview\\TrustedComms\\CpsInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CpsInstance.php',
+        'Twilio\\Rest\\Preview\\TrustedComms\\CpsList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CpsList.php',
+        'Twilio\\Rest\\Preview\\TrustedComms\\CpsPage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CpsPage.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\CreatePhoneCallOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/PhoneCallOptions.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\CurrentCallContext' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CurrentCallContext.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\CurrentCallInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CurrentCallInstance.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\CurrentCallList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CurrentCallList.php',
-        'Twilio\\Rest\\Preview\\TrustedComms\\CurrentCallOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CurrentCallOptions.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\CurrentCallPage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CurrentCallPage.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\DeviceInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/DeviceInstance.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\DeviceList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/DeviceList.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\DevicePage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/DevicePage.php',
-        'Twilio\\Rest\\Preview\\TrustedComms\\FetchCurrentCallOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/CurrentCallOptions.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\PhoneCallInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/PhoneCallInstance.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\PhoneCallList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/PhoneCallList.php',
         'Twilio\\Rest\\Preview\\TrustedComms\\PhoneCallOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Preview/TrustedComms/PhoneCallOptions.php',
@@ -5736,6 +5748,10 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'Twilio\\Rest\\Verify\\V2\\Service\\CreateRateLimitOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/RateLimitOptions.php',
         'Twilio\\Rest\\Verify\\V2\\Service\\CreateVerificationCheckOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/VerificationCheckOptions.php',
         'Twilio\\Rest\\Verify\\V2\\Service\\CreateVerificationOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/VerificationOptions.php',
+        'Twilio\\Rest\\Verify\\V2\\Service\\MessagingConfigurationContext' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/MessagingConfigurationContext.php',
+        'Twilio\\Rest\\Verify\\V2\\Service\\MessagingConfigurationInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/MessagingConfigurationInstance.php',
+        'Twilio\\Rest\\Verify\\V2\\Service\\MessagingConfigurationList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/MessagingConfigurationList.php',
+        'Twilio\\Rest\\Verify\\V2\\Service\\MessagingConfigurationPage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/MessagingConfigurationPage.php',
         'Twilio\\Rest\\Verify\\V2\\Service\\RateLimitContext' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/RateLimitContext.php',
         'Twilio\\Rest\\Verify\\V2\\Service\\RateLimitInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/RateLimitInstance.php',
         'Twilio\\Rest\\Verify\\V2\\Service\\RateLimitList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Verify/V2/Service/RateLimitList.php',
@@ -5865,6 +5881,7 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'Twilio\\Rest\\Wireless\\V1\\RatePlanPage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/RatePlanPage.php',
         'Twilio\\Rest\\Wireless\\V1\\ReadCommandOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/CommandOptions.php',
         'Twilio\\Rest\\Wireless\\V1\\ReadSimOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/SimOptions.php',
+        'Twilio\\Rest\\Wireless\\V1\\ReadUsageRecordOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/UsageRecordOptions.php',
         'Twilio\\Rest\\Wireless\\V1\\SimContext' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/SimContext.php',
         'Twilio\\Rest\\Wireless\\V1\\SimInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/SimInstance.php',
         'Twilio\\Rest\\Wireless\\V1\\SimList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/SimList.php',
@@ -5882,6 +5899,10 @@ class ComposerStaticInit15a1689a9e7db2244643e9deb70eb455
         'Twilio\\Rest\\Wireless\\V1\\Sim\\UsageRecordPage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/Sim/UsageRecordPage.php',
         'Twilio\\Rest\\Wireless\\V1\\UpdateRatePlanOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/RatePlanOptions.php',
         'Twilio\\Rest\\Wireless\\V1\\UpdateSimOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/SimOptions.php',
+        'Twilio\\Rest\\Wireless\\V1\\UsageRecordInstance' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/UsageRecordInstance.php',
+        'Twilio\\Rest\\Wireless\\V1\\UsageRecordList' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/UsageRecordList.php',
+        'Twilio\\Rest\\Wireless\\V1\\UsageRecordOptions' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/UsageRecordOptions.php',
+        'Twilio\\Rest\\Wireless\\V1\\UsageRecordPage' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Rest/Wireless/V1/UsageRecordPage.php',
         'Twilio\\Security\\RequestValidator' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Security/RequestValidator.php',
         'Twilio\\Serialize' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Serialize.php',
         'Twilio\\Stream' => __DIR__ . '/..' . '/twilio/sdk/Twilio/Stream.php',

@@ -292,3 +292,27 @@
         }
     }
 }
+
+.topWebsite.about{
+    margin-top: -300px;
+            
+    .innerTopWebsite{
+
+        .bottomFeed{
+            background: white;
+            padding: 25px;
+
+            @media screen and (min-width: 1200px)
+            {
+                width: 800px;
+            }
+
+            @media screen and (max-width: 1199px){
+                width: 98%;
+            }
+                
+            margin: 0% auto;
+            padding-top: 25px;
+        }
+    }
+}

@@ -5,8 +5,16 @@
         <p>You're not alone. Share your thoughts and ideas with the world, and get the support you need</p>
     </div>
     <div class="middleSidebar">
-        <ul>
+        <ul class="specialLinkList">
             <li><a href='{{  route('index.index') }}'>Share your thoughts</a></li>
+        </ul>
+        <ul class="ordinaryLinkList">
+            <li>
+                <a href="{{ route('index.about') }}">About</a>            
+            </li>
+            <li>
+                <a href="{{ route('index.contact') }}">Contact</a>    
+            </li>
         </ul>
     </div>
     <div class="bottomSidebar">

@@ -13,7 +13,7 @@ $post = json_decode($data, true)[0];
 
 // Share content
 $share_content = "
-    <input type='text' id='copyFrom' value='https://mutterly.com/thought/".$post['thought_id']."' style='display: none;'/>
+    <input type='text' id='copyFrom' value='http://mutterly.com/thought/".$post['thought_id']."' style='display: none;'/>
     <p style='margin-bottom: 5px;border-bottom: 1px solid #eee;padding-bottom: 10px;'><button class='copy btn-sm' style='color: #673ab7;' href='https://mutterly.com/thought/".$post['thought_id']."'>Copy link</button></p>
     <a style='font-size: 22px;' class='twitter-share-button' href='https://twitter.com/intent/tweet?text=Lets support our peer: https://mutterly.com/thought/".$post['thought_id']." #mutterly'><i class='fab fa-twitter'></i></a>
 
@@ -65,9 +65,14 @@ $share_content = "
                         <div class="post-mold">
                             <div class="innerPost">
                                 <div class="topPost">
-                                    <p><?php echo $post['thought_content']; ?></p>
+                                    <p class="mainPostText"><?php echo $filter->santitize($post['thought_content']); ?></p>
                                     <div class="actions">
-                                        <button type="button" class="btn btn-sm" data-html="true" data-placement="top" data-toggle="popover" title="Share this thought" data-content="<?php echo $share_content; ?>" href="/thought/<?php echo $post['thought_id']; ?>">Share</button>
+                                        <?php if(strpos($filter->santitize($post['thought_content']), '*') !== false){ ?>
+                                            <button type="button" style="background: #eb4d4b;" class="btn btn-sm showOriginalBtn" data-original="<?php echo $post['thought_content']; ?>">Show original</button>
+                                        <?php } ?>
+                                        <button type="button"  class="btn btn-sm" data-html="true" data-placement="top" data-toggle="popover" title="Share this thought" data-content="<?php echo $share_content; ?>" href="/thought/<?php echo $post['thought_id']; ?>">Share</button>
+                                        <button style='display: none;' type="button" class="btn btn-sm reportBtn" id="reportBtn" data-code="<?php echo $post['thought_id']; ?>">Report</button>
+
                                         <a class="likeBtn" id="likeBtn-<?php echo $post['thought_id']; ?>" data-id="<?php echo $post['thought_id']; ?>"><span class="icon animated" id="icon-<?php echo $post['thought_id']; ?>"><i class="far fa-heart"></i></span> <span class="count" id="count-<?php echo $post['thought_id']; ?>"><?php echo count($likes); ?></span></a>
                                     </div>
                                 </div>
@@ -130,12 +135,24 @@ $share_content = "
                             }else{
                                 $city = "Ohio";
                             }
-                        ?>
+                            ?>
                             <div class="post card">
                                 <div class="post-mold">
                                     <div class="innerPost">
-                                        <div class="topPost">
-                                            <p><?php echo $comment_content; ?></p>
+                                        <div class="topPost">                                                <?php
+                                                if($filter->bullyFilter($comment_content) > 0)
+                                                {
+                                                    ?>
+                                                        <p id="cmtContent<?php echo $comment_id; ?>"><i>*This is a possible hate comment*</i></p>
+                                                        <button type="button" style="margin-top: 15px;color: white;background: #eb4d4b;" class="btn btn-sm showOriginalCmtBtn" data-cmtid="<?php echo $comment_id; ?>" data-original="<?php echo $comment_content; ?>">Show original</button>
+
+                                                    <?php
+                                                }else{
+                                                ?>
+                                                    <p id="cmtContent<?php echo $comment_id; ?>"><?php echo $filter->santitize($comment_content); ?></p>
+                                                <?php
+                                                }
+                                                ?>
                                             <div class="actions">
 
                                             </div>

@@ -36,16 +36,14 @@ class ApplicationList extends ListResource {
     /**
      * Create a new ApplicationInstance
      *
-     * @param string $friendlyName A string to describe the new resource
      * @param array|Options $options Optional Arguments
      * @return ApplicationInstance Newly created ApplicationInstance
      * @throws TwilioException When an HTTP error occurs.
      */
-    public function create($friendlyName, $options = array()) {
+    public function create($options = array()) {
         $options = new Values($options);
 
         $data = Values::of(array(
-            'FriendlyName' => $friendlyName,
             'ApiVersion' => $options['apiVersion'],
             'VoiceUrl' => $options['voiceUrl'],
             'VoiceMethod' => $options['voiceMethod'],
@@ -60,6 +58,7 @@ class ApplicationList extends ListResource {
             'SmsFallbackMethod' => $options['smsFallbackMethod'],
             'SmsStatusCallback' => $options['smsStatusCallback'],
             'MessageStatusCallback' => $options['messageStatusCallback'],
+            'FriendlyName' => $options['friendlyName'],
         ));
 
         $payload = $this->version->create(

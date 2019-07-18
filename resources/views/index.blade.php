@@ -3,9 +3,13 @@ $stylesheet = "index";
 
 use App\Libraries\PostSystem;
 use App\Libraries\LocationSystem;
+use App\Libraries\FilterSystem;
+
 
 $postSystem = new PostSystem();
 $location = new LocationSystem();
+$filter = new FilterSystem();
+
 ?>
 @extends('layouts.index')
 
@@ -116,7 +120,7 @@ $location = new LocationSystem();
                                 <div class="post-mold">
                                     <div class="innerPost">
                                         <div class="topPost">
-                                            <p><?php echo $thought_content; ?></p>
+                                            <p><?php echo $filter->santitize($thought_content); ?></p>
                                             <div class="actions">
                                                 <a href="/thought/<?php echo $thought_id; ?>">Show support</a>
                                                 <a class="likeBtn" id="likeBtn-<?php echo $thought_id; ?>" data-id="<?php echo $thought_id; ?>"><span class="icon animated" id="icon-<?php echo $thought_id; ?>"><i class="far fa-heart"></i></span> <span class="count" id="count-<?php echo $thought_id; ?>"><?php echo count($likes); ?></span></a>

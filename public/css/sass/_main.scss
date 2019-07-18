@@ -116,9 +116,9 @@ body, html{
         }
 
         .middleSidebar{
-            padding-bottom: 25px;
+            padding-bottom: 15px;
 
-            ul{
+            ul.specialLinkList{
                 margin: 0px;
                 padding: 0px;
 
@@ -136,6 +136,27 @@ body, html{
                         border-radius: 3px;
 
                         text-decoration: none;
+                    }
+                }
+            }
+
+            ul.ordinaryLinkList{
+                margin: 0px;
+                padding: 0px;
+
+                padding-top: 15px;
+
+                li{
+                    display: inline;
+                    list-style: none;
+
+                    margin-right: 5px;
+
+                    a{
+                        color: #aaa;
+                        
+                        font-weight: 500;
+                        font-size: .8em;
                     }
                 }
             }

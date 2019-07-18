@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var busy = false;
+    var link;
 
     $('[data-toggle="popover"]').popover()
 
@@ -20,8 +21,22 @@ $(document).ready(function(){
 
     });
 
+    $(document).on('click', '.showOriginalBtn', function(){
+        var text = $(this).data('original');
+
+        $(".mainPostText").html(text);
+    });
+
+    $(document).on('click', '.showOriginalCmtBtn', function(){
+        var text = $(this).data('original');
+        var id = $(this).data('cmtid');
+
+        $("#cmtContent" + id).html(text);
+    });
+
     $(document).on('click', '.close-btn', function(){
-        location.reload();
+        window.location.assign('/thought/' + link);
+
     });
 
     $(document).on('submit', '#postMakerForm', function(e)
@@ -41,6 +56,7 @@ $(document).ready(function(){
                 {
                     if(data.code == 1)
                     {
+                        link = data.link;
                         $("#successModal").modal()
                     }else{
 
@@ -111,13 +127,14 @@ $(document).ready(function(){
                     if(obj.code == 1)
                     {
                         location.reload();
+                        return false;
                     }else{
                         alert(obj.status);
                         return false;
                     }
                 });
             }else{
-
+                return false;
             }
 
             busy = false;
