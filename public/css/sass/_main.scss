@@ -34,17 +34,30 @@ body, html{
         background: #673ab7;
         padding: 10px;
 
-        padding-left: 55px;
+        .contain{
+            width: 89%;
+            margin: 0% auto;
+            padding-left: 7px;
 
-        h4{
-            color: white;
+            h4{
+                color: white;
 
-            font-weight: 500;
-            font-size: .7em;
-            padding: 0px;
-            margin: 0px;
+                font-weight: 500;
+                font-size: .7em;
+                padding: 0px;
+                margin: 0px;
 
-            text-align: left;
+                text-align: left;
+            }
+
+            a{
+                float: right;
+                color: white;
+                margin-top: -15px;
+                font-size: .7em;
+                font-weight: 500;
+                text-decoration: underline;
+            }
         }
     }
 

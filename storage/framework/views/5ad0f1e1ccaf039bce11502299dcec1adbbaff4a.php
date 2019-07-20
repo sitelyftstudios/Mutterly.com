@@ -1,6 +1,9 @@
 <header class="header">
     <div class="topBetaNote">
-        <h4>Beta <?php echo env('APP_VERSION'); ?></h4>
+        <div class="contain">
+            <h4>Beta <?php echo env('APP_VERSION'); ?></h4>
+            <a href="<?php echo e(route('index.about')); ?>">What is this?</a>
+        </div>
     </div>
     <div class="innerHeader">
         <div class="contain">
