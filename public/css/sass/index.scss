@@ -266,6 +266,29 @@
                     }
                 }
 
+                .secondBottomFeed{
+                    @media screen and (min-width: 1200px)
+                    {
+                        width: 800px;
+                    }
+
+                    @media screen and (max-width: 1199px){
+                        width: 98%;
+                    }
+                        
+                    margin: 0% auto;
+
+                    padding-top: 25px;
+
+                    @media screen and (min-width: 1171px){
+                        column-count: 2;
+                    }
+
+                    @media screen and (max-width: 1170px){
+                        column-count: 1;
+                    }
+                }
+
                 .bottomFeedView{
                     @media screen and (min-width: 1200px)
                     {
@@ -313,6 +336,46 @@
                 
             margin: 0% auto;
             padding-top: 25px;
+        }
+
+        .secondBottomFeed{
+            @media screen and (min-width: 1200px)
+            {
+                width: 800px;
+            }
+
+            @media screen and (max-width: 1199px){
+                width: 98%;
+            }
+                
+            margin: 0% auto;
+            margin-top: 50px;
+
+            padding: 25px;
+            background: white;
+
+            h5{
+                color: #aaa;
+                
+                font-size: 1.2em;
+                font-weight: 500;
+            }
+
+            .inner{
+                padding-top: 15px;
+
+                ol{
+                    padding-left: 15px;
+                    margin-left: 0px;
+
+                    li{
+
+                        p{
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
         }
     }
 }
