@@ -19,7 +19,7 @@ class PostSystem
     public $filter;
 
     private $tkey = "AC05dab4b09e5f807c89131b0aa41e91d1";
-    private $tauth = "2c904d48e4e0e2a4c83825b111501c2f";
+    private $tauth = "baa9c4d9b8d6a16f3b943eaadadf1c33";
     private $tnumber = "+14404673532";
 
     private $location;
@@ -75,7 +75,7 @@ class PostSystem
                         $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "From Mutterly:\nDon't worry, you're not alone. We will text you when someone comments on your post. Be sure to save our number!"));
 
                         // Link 
-                        $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "Link to your post:\nhttp://mutterly.com/thought/".$code.""));
+                        $this->tclient->messages->create($valid_number, array('from' => $this->tnumber, 'body' => "Link to your post:\nhttps://mutterly.com/thought/".$code.""));
 
                         // Insert
                         $insert = DB::table('thoughts')->insert(['thought_id' => $code, 'thought_content' => $text, 'thought_ip' => $ip, 'thought_date' => date('y-m-d H:i:s'), 'thought_views' => 0, 'thought_phone_number' => $valid_number]);
@@ -125,7 +125,7 @@ class PostSystem
             $this->tclient->messages->create($thought[0]->thought_phone_number, array('from' => $this->tnumber, 'body' => "From Mutterly:\nYou have a new comment!"));
 
             // Link
-            $this->tclient->messages->create($thought[0]->thought_phone_number, array('from' => $this->tnumber, 'body' => "http://mutterly.com/thought/view/".$code.""));
+            $this->tclient->messages->create($thought[0]->thought_phone_number, array('from' => $this->tnumber, 'body' => "https://mutterly.com/thought/view/".$code.""));
 
             // Okay lets add it to the database
             $insert = DB::table('thoughts_comments')->insert(['thought_id' => $code, 'thought_author' =>$author, 'comment_id' => $ccode, 'comment_content' => $content, 'comment_user_ip' => $ip, 'comment_date' => date('y-m-d H:i:s')]);

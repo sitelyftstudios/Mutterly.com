@@ -13,7 +13,7 @@ $post = json_decode($data, true)[0];
 
 // Share content
 $share_content = "
-    <input type='text' id='copyFrom' value='http://mutterly.com/thought/".$post['thought_id']."' style='display: none;'/>
+    <input type='text' id='copyFrom' value='https://mutterly.com/thought/".$post['thought_id']."' style='display: none;'/>
     <p style='margin-bottom: 5px;border-bottom: 1px solid #eee;padding-bottom: 10px;'><button class='copy btn-sm' style='color: #673ab7;' href='https://mutterly.com/thought/".$post['thought_id']."'>Copy link</button></p>
     <a style='font-size: 22px;' class='twitter-share-button' href='https://twitter.com/intent/tweet?text=Lets support our peer: https://mutterly.com/thought/".$post['thought_id']." #mutterly'><i class='fab fa-twitter'></i></a>
 
