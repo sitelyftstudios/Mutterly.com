@@ -18,6 +18,16 @@
         <link rel="alternate" hreflang="en" href="https://bea.com/" />
 
         <!-- Google -->
+        <?php if($_SERVER['REMOTE_ADDR'] != "127.0.0.1"){ ?>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144181603-1"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-144181603-1');
+            </script>
+        <?php } ?>
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" href="<?php echo e(asset('images/mutterly_fav.png')); ?>"/>

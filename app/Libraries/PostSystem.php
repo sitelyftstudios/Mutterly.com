@@ -18,9 +18,9 @@ class PostSystem
     private $tclient;
     public $filter;
 
-    private $tkey = "AC05dab4b09e5f807c89131b0aa41e91d1";
-    private $tauth = "baa9c4d9b8d6a16f3b943eaadadf1c33";
-    private $tnumber = "+14404673532";
+    private $tkey;
+    private $tauth;
+    private $tnumber;
 
     private $location;
 
@@ -32,11 +32,18 @@ class PostSystem
         $this->db = new DB;
         $this->filter = new FilterSystem;
 
+        // Api keys
+        $keys = DB::table('twilo')->where('id', '2')->get();
+
+        $this->tkey = $keys[0]->api_key;
+        $this->tauth = $keys[0]->api_auth;
+
         // Connect 
         $this->tclient = new Client($this->tkey, $this->tauth);
 
         // Location services
         $this->location = new LocationSystem;
+
     }
 
     /**
