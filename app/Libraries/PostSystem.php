@@ -37,6 +37,7 @@ class PostSystem
 
         $this->tkey = $keys[0]->api_key;
         $this->tauth = $keys[0]->api_auth;
+        $this->tnumber = $keys[0]->api_number;
 
         // Connect 
         $this->tclient = new Client($this->tkey, $this->tauth);
